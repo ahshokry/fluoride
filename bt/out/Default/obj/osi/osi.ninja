@@ -1,0 +1,34 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../.. -I../../linux_include -I../../internal_include -I../../utils/include -I../../stack/include -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/osi
+target_output_name = libosi
+
+build obj/osi/src/libosi.alarm.o: cxx ../../osi/src/alarm.cc
+build obj/osi/src/libosi.allocation_tracker.o: cxx ../../osi/src/allocation_tracker.cc
+build obj/osi/src/libosi.allocator.o: cxx ../../osi/src/allocator.cc
+build obj/osi/src/libosi.array.o: cxx ../../osi/src/array.cc
+build obj/osi/src/libosi.buffer.o: cxx ../../osi/src/buffer.cc
+build obj/osi/src/libosi.compat.o: cxx ../../osi/src/compat.cc
+build obj/osi/src/libosi.config.o: cxx ../../osi/src/config.cc
+build obj/osi/src/libosi.fixed_queue.o: cxx ../../osi/src/fixed_queue.cc
+build obj/osi/src/libosi.future.o: cxx ../../osi/src/future.cc
+build obj/osi/src/libosi.hash_map_utils.o: cxx ../../osi/src/hash_map_utils.cc
+build obj/osi/src/libosi.list.o: cxx ../../osi/src/list.cc
+build obj/osi/src/libosi.mutex.o: cxx ../../osi/src/mutex.cc
+build obj/osi/src/libosi.osi.o: cxx ../../osi/src/osi.cc
+build obj/osi/src/libosi.properties.o: cxx ../../osi/src/properties.cc
+build obj/osi/src/libosi.reactor.o: cxx ../../osi/src/reactor.cc
+build obj/osi/src/libosi.ringbuffer.o: cxx ../../osi/src/ringbuffer.cc
+build obj/osi/src/libosi.semaphore.o: cxx ../../osi/src/semaphore.cc
+build obj/osi/src/libosi.socket.o: cxx ../../osi/src/socket.cc
+build obj/osi/src/socket_utils/libosi.socket_local_client.o: cxx ../../osi/src/socket_utils/socket_local_client.cc
+build obj/osi/src/socket_utils/libosi.socket_local_server.o: cxx ../../osi/src/socket_utils/socket_local_server.cc
+build obj/osi/src/libosi.thread.o: cxx ../../osi/src/thread.cc
+build obj/osi/src/libosi.wakelock.o: cxx ../../osi/src/wakelock.cc
+
+build obj/osi/libosi.a: alink obj/osi/src/libosi.alarm.o obj/osi/src/libosi.allocation_tracker.o obj/osi/src/libosi.allocator.o obj/osi/src/libosi.array.o obj/osi/src/libosi.buffer.o obj/osi/src/libosi.compat.o obj/osi/src/libosi.config.o obj/osi/src/libosi.fixed_queue.o obj/osi/src/libosi.future.o obj/osi/src/libosi.hash_map_utils.o obj/osi/src/libosi.list.o obj/osi/src/libosi.mutex.o obj/osi/src/libosi.osi.o obj/osi/src/libosi.properties.o obj/osi/src/libosi.reactor.o obj/osi/src/libosi.ringbuffer.o obj/osi/src/libosi.semaphore.o obj/osi/src/libosi.socket.o obj/osi/src/socket_utils/libosi.socket_local_client.o obj/osi/src/socket_utils/libosi.socket_local_server.o obj/osi/src/libosi.thread.o obj/osi/src/libosi.wakelock.o || obj/common/libcommon.a obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

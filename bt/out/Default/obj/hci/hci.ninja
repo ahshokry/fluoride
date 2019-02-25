@@ -1,0 +1,22 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../../hci/include -I../.. -I../../internal_include -I../../bta/include -I../../btcore/include -I../../stack/include -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/hci
+target_output_name = libhci
+
+build obj/hci/src/libhci.btsnoop.o: cxx ../../hci/src/btsnoop.cc
+build obj/hci/src/libhci.btsnoop_mem.o: cxx ../../hci/src/btsnoop_mem.cc
+build obj/hci/src/libhci.btsnoop_net.o: cxx ../../hci/src/btsnoop_net.cc
+build obj/hci/src/libhci.buffer_allocator.o: cxx ../../hci/src/buffer_allocator.cc
+build obj/hci/src/libhci.hci_inject.o: cxx ../../hci/src/hci_inject.cc
+build obj/hci/src/libhci.hci_layer.o: cxx ../../hci/src/hci_layer.cc
+build obj/hci/src/libhci.hci_layer_linux.o: cxx ../../hci/src/hci_layer_linux.cc
+build obj/hci/src/libhci.hci_packet_factory.o: cxx ../../hci/src/hci_packet_factory.cc
+build obj/hci/src/libhci.hci_packet_parser.o: cxx ../../hci/src/hci_packet_parser.cc
+build obj/hci/src/libhci.packet_fragmenter.o: cxx ../../hci/src/packet_fragmenter.cc
+
+build obj/hci/libhci.a: alink obj/hci/src/libhci.btsnoop.o obj/hci/src/libhci.btsnoop_mem.o obj/hci/src/libhci.btsnoop_net.o obj/hci/src/libhci.buffer_allocator.o obj/hci/src/libhci.hci_inject.o obj/hci/src/libhci.hci_layer.o obj/hci/src/libhci.hci_layer_linux.o obj/hci/src/libhci.hci_packet_factory.o obj/hci/src/libhci.hci_packet_parser.o obj/hci/src/libhci.packet_fragmenter.o || obj/common/libcommon.a obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

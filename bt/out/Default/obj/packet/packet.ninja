@@ -1,0 +1,33 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../.. -I../../internal_include -I../../stack/include -I../../profile/avrcp -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/packet
+target_output_name = libpacket
+
+build obj/packet/avrcp/libpacket.get_folder_items.o: cxx ../../packet/avrcp/get_folder_items.cc
+build obj/packet/avrcp/libpacket.register_notification_packet.o: cxx ../../packet/avrcp/register_notification_packet.cc
+build obj/packet/avrcp/libpacket.change_path.o: cxx ../../packet/avrcp/change_path.cc
+build obj/packet/avrcp/libpacket.get_total_number_of_items.o: cxx ../../packet/avrcp/get_total_number_of_items.cc
+build obj/packet/avrcp/libpacket.capabilities_packet.o: cxx ../../packet/avrcp/capabilities_packet.cc
+build obj/packet/avrcp/libpacket.pass_through_packet.o: cxx ../../packet/avrcp/pass_through_packet.cc
+build obj/packet/avrcp/libpacket.set_browsed_player.o: cxx ../../packet/avrcp/set_browsed_player.cc
+build obj/packet/avrcp/libpacket.avrcp_reject_packet.o: cxx ../../packet/avrcp/avrcp_reject_packet.cc
+build obj/packet/avrcp/libpacket.set_absolute_volume.o: cxx ../../packet/avrcp/set_absolute_volume.cc
+build obj/packet/avrcp/libpacket.avrcp_packet.o: cxx ../../packet/avrcp/avrcp_packet.cc
+build obj/packet/avrcp/libpacket.get_element_attributes_packet.o: cxx ../../packet/avrcp/get_element_attributes_packet.cc
+build obj/packet/avrcp/libpacket.get_play_status_packet.o: cxx ../../packet/avrcp/get_play_status_packet.cc
+build obj/packet/avrcp/libpacket.general_reject_packet.o: cxx ../../packet/avrcp/general_reject_packet.cc
+build obj/packet/avrcp/libpacket.avrcp_browse_packet.o: cxx ../../packet/avrcp/avrcp_browse_packet.cc
+build obj/packet/avrcp/libpacket.get_item_attributes.o: cxx ../../packet/avrcp/get_item_attributes.cc
+build obj/packet/avrcp/libpacket.play_item.o: cxx ../../packet/avrcp/play_item.cc
+build obj/packet/avrcp/libpacket.vendor_packet.o: cxx ../../packet/avrcp/vendor_packet.cc
+build obj/packet/avrcp/libpacket.set_addressed_player.o: cxx ../../packet/avrcp/set_addressed_player.cc
+build obj/packet/base/libpacket.iterator.o: cxx ../../packet/base/iterator.cc
+build obj/packet/base/libpacket.packet.o: cxx ../../packet/base/packet.cc
+build obj/packet/base/libpacket.packet_builder.o: cxx ../../packet/base/packet_builder.cc
+
+build obj/packet/libpacket.a: alink obj/packet/avrcp/libpacket.get_folder_items.o obj/packet/avrcp/libpacket.register_notification_packet.o obj/packet/avrcp/libpacket.change_path.o obj/packet/avrcp/libpacket.get_total_number_of_items.o obj/packet/avrcp/libpacket.capabilities_packet.o obj/packet/avrcp/libpacket.pass_through_packet.o obj/packet/avrcp/libpacket.set_browsed_player.o obj/packet/avrcp/libpacket.avrcp_reject_packet.o obj/packet/avrcp/libpacket.set_absolute_volume.o obj/packet/avrcp/libpacket.avrcp_packet.o obj/packet/avrcp/libpacket.get_element_attributes_packet.o obj/packet/avrcp/libpacket.get_play_status_packet.o obj/packet/avrcp/libpacket.general_reject_packet.o obj/packet/avrcp/libpacket.avrcp_browse_packet.o obj/packet/avrcp/libpacket.get_item_attributes.o obj/packet/avrcp/libpacket.play_item.o obj/packet/avrcp/libpacket.vendor_packet.o obj/packet/avrcp/libpacket.set_addressed_player.o obj/packet/base/libpacket.iterator.o obj/packet/base/libpacket.packet.o obj/packet/base/libpacket.packet_builder.o || obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

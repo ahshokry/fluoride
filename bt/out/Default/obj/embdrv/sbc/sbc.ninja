@@ -1,0 +1,10 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../../include -I../../types -I/usr/include/libcxxabi
+target_out_dir = obj/embdrv/sbc
+target_output_name = libsbc
+
+
+build obj/embdrv/sbc/libsbc.a: alink || obj/embdrv/sbc/sbc_decoder.stamp obj/embdrv/sbc/sbc_encoder.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

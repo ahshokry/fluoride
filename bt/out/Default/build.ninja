@@ -1,0 +1,143 @@
+ninja_required_version = 1.7.2
+
+rule gn
+  command = ../../../../../../usr/bin/gn --root=../.. -q gen .
+  description = Regenerating ninja files
+
+build build.ninja: gn
+  generator = 1
+  depfile = build.ninja.d
+
+subninja toolchain.ninja
+
+build bluetooth: phony obj/bluetooth.stamp
+build test_tools: phony obj/test_tools.stamp
+build bta: phony obj/bta/libbta.a
+build btcore: phony obj/btcore/libbtcore.a
+build btif: phony obj/btif/libbtif.a
+build common: phony obj/common/libcommon.a
+build device: phony obj/device/libdevice.a
+build hci: phony obj/hci/libhci.a
+build osi: phony obj/osi/libosi.a
+build packet: phony obj/packet/libpacket.a
+build service: phony obj/service/service.stamp
+build stack: phony obj/stack/libstack.a
+build types: phony obj/types/libtypes.a
+build udrv: phony obj/udrv/udrv.stamp
+build utils: phony obj/utils/libutils.a
+build base: phony obj/third_party/libchrome/libbase.a
+build base_sources: phony obj/third_party/libchrome/base_sources.stamp
+build crypto_toolbox: phony obj/stack/libcrypto_toolbox.a
+build g722: phony obj/embdrv/g722/libg722.a
+build gmock: phony obj/third_party/googletest/libgmock.a
+build gmock_main: phony obj/third_party/googletest/libgmock_main.a
+build gtest: phony obj/third_party/googletest/libgtest.a
+build gtest_main: phony obj/third_party/googletest/gtest_main.stamp
+build libFraunhoferAAC: phony obj/third_party/aac/libFraunhoferAAC.a
+build libldacBT_abr: phony libldacBT_abr.so
+build libldacBT_enc: phony libldacBT_enc.so
+build modp_b64: phony obj/third_party/modp_b64/modp_b64.stamp
+build profile_avrcp: phony obj/profile/avrcp/libprofile_avrcp.a
+build sbc: phony obj/embdrv/sbc/libsbc.a
+build sbc_decoder: phony obj/embdrv/sbc/sbc_decoder.stamp
+build sbc_encoder: phony obj/embdrv/sbc/sbc_encoder.stamp
+build tinyxml2: phony obj/third_party/tinyxml2/libtinyxml2.a
+build $:bluetooth: phony obj/bluetooth.stamp
+build $:test_tools: phony obj/test_tools.stamp
+build bta$:bta: phony obj/bta/libbta.a
+build btcore$:btcore: phony obj/btcore/libbtcore.a
+build btcore$:net_test_btcore: phony net_test_btcore
+build btif$:btif: phony obj/btif/libbtif.a
+build common$:bt_test_common: phony bt_test_common
+build common$:common: phony obj/common/libcommon.a
+build device$:device: phony obj/device/libdevice.a
+build device$:net_test_device: phony net_test_device
+build embdrv/g722$:g722: phony obj/embdrv/g722/libg722.a
+build embdrv/g722: phony obj/embdrv/g722/libg722.a
+build embdrv/sbc$:sbc: phony obj/embdrv/sbc/libsbc.a
+build embdrv/sbc: phony obj/embdrv/sbc/libsbc.a
+build embdrv/sbc$:sbc_decoder: phony obj/embdrv/sbc/sbc_decoder.stamp
+build embdrv/sbc$:sbc_encoder: phony obj/embdrv/sbc/sbc_encoder.stamp
+build hci$:hci: phony obj/hci/libhci.a
+build hci$:net_test_hci: phony net_test_hci
+build main$:bluetooth: phony libbluetooth.so
+build osi$:net_test_osi: phony net_test_osi
+build osi$:osi: phony obj/osi/libosi.a
+build packet$:packet: phony obj/packet/libpacket.a
+build profile/avrcp$:profile_avrcp: phony obj/profile/avrcp/libprofile_avrcp.a
+build service$:bluetoothtbd: phony bluetoothtbd
+build service$:service: phony obj/service/service.stamp
+build service$:service_unittests: phony service_unittests
+build stack$:crypto_toolbox: phony obj/stack/libcrypto_toolbox.a
+build stack$:net_test_stack_crypto_toolbox: phony net_test_stack_crypto_toolbox
+build stack$:net_test_stack_multi_adv: phony net_test_stack_multi_adv
+build stack$:net_test_stack_smp: phony net_test_stack_smp
+build stack$:stack: phony obj/stack/libstack.a
+build third_party/aac$:libFraunhoferAAC: phony obj/third_party/aac/libFraunhoferAAC.a
+build third_party/googletest$:gmock: phony obj/third_party/googletest/libgmock.a
+build third_party/googletest$:gmock_main: phony obj/third_party/googletest/libgmock_main.a
+build third_party/googletest$:gtest: phony obj/third_party/googletest/libgtest.a
+build third_party/googletest$:gtest_main: phony obj/third_party/googletest/gtest_main.stamp
+build third_party/libchrome$:base: phony obj/third_party/libchrome/libbase.a
+build third_party/libchrome$:base_sources: phony obj/third_party/libchrome/base_sources.stamp
+build third_party/libldac$:libldacBT_abr: phony libldacBT_abr.so
+build third_party/libldac$:libldacBT_enc: phony libldacBT_enc.so
+build third_party/modp_b64$:modp_b64: phony obj/third_party/modp_b64/modp_b64.stamp
+build third_party/modp_b64: phony obj/third_party/modp_b64/modp_b64.stamp
+build third_party/tinyxml2$:tinyxml2: phony obj/third_party/tinyxml2/libtinyxml2.a
+build third_party/tinyxml2: phony obj/third_party/tinyxml2/libtinyxml2.a
+build tools/mcap_tool$:mcap_tool: phony mcap_tool
+build tools/mcap_tool: phony mcap_tool
+build types$:types: phony obj/types/libtypes.a
+build types$:types_unittests: phony types_unittests
+build udrv$:udrv: phony obj/udrv/udrv.stamp
+build utils$:utils: phony obj/utils/libutils.a
+
+build all: phony $
+    obj/bluetooth.stamp $
+    obj/test_tools.stamp $
+    obj/bta/libbta.a $
+    obj/btcore/libbtcore.a $
+    net_test_btcore $
+    obj/btif/libbtif.a $
+    bt_test_common $
+    obj/common/libcommon.a $
+    obj/device/libdevice.a $
+    net_test_device $
+    obj/embdrv/g722/libg722.a $
+    obj/embdrv/sbc/libsbc.a $
+    obj/embdrv/sbc/sbc_decoder.stamp $
+    obj/embdrv/sbc/sbc_encoder.stamp $
+    obj/hci/libhci.a $
+    net_test_hci $
+    libbluetooth.so $
+    net_test_osi $
+    obj/osi/libosi.a $
+    obj/packet/libpacket.a $
+    obj/profile/avrcp/libprofile_avrcp.a $
+    bluetoothtbd $
+    obj/service/service.stamp $
+    service_unittests $
+    obj/stack/libcrypto_toolbox.a $
+    net_test_stack_crypto_toolbox $
+    net_test_stack_multi_adv $
+    net_test_stack_smp $
+    obj/stack/libstack.a $
+    obj/third_party/aac/libFraunhoferAAC.a $
+    obj/third_party/googletest/libgmock.a $
+    obj/third_party/googletest/libgmock_main.a $
+    obj/third_party/googletest/libgtest.a $
+    obj/third_party/googletest/gtest_main.stamp $
+    obj/third_party/libchrome/libbase.a $
+    obj/third_party/libchrome/base_sources.stamp $
+    libldacBT_abr.so $
+    libldacBT_enc.so $
+    obj/third_party/modp_b64/modp_b64.stamp $
+    obj/third_party/tinyxml2/libtinyxml2.a $
+    mcap_tool $
+    obj/types/libtypes.a $
+    types_unittests $
+    obj/udrv/udrv.stamp $
+    obj/utils/libutils.a
+
+default all

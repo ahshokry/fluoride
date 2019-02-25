@@ -1,0 +1,17 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../../embdrv/sbc/encoder/include -I../../internal_include -I../../stack/include -I../../include -I../../types -I/usr/include/libcxxabi
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_c = -std=c99
+target_out_dir = obj/embdrv/sbc
+target_output_name = sbc_encoder
+
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_analysis.o: cc ../../embdrv/sbc/encoder/srce/sbc_analysis.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_dct.o: cc ../../embdrv/sbc/encoder/srce/sbc_dct.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_dct_coeffs.o: cc ../../embdrv/sbc/encoder/srce/sbc_dct_coeffs.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_enc_bit_alloc_mono.o: cc ../../embdrv/sbc/encoder/srce/sbc_enc_bit_alloc_mono.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_enc_bit_alloc_ste.o: cc ../../embdrv/sbc/encoder/srce/sbc_enc_bit_alloc_ste.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_enc_coeffs.o: cc ../../embdrv/sbc/encoder/srce/sbc_enc_coeffs.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_encoder.o: cc ../../embdrv/sbc/encoder/srce/sbc_encoder.c
+build obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_packing.o: cc ../../embdrv/sbc/encoder/srce/sbc_packing.c
+
+build obj/embdrv/sbc/sbc_encoder.stamp: stamp obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_analysis.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_dct.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_dct_coeffs.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_enc_bit_alloc_mono.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_enc_bit_alloc_ste.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_enc_coeffs.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_encoder.o obj/embdrv/sbc/encoder/srce/sbc_encoder.sbc_packing.o

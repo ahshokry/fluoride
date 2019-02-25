@@ -1,0 +1,52 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../.. -I../../linux_include -I../../media -I../../media/audio/include -I../../include -I../../internal_include -I../../utils/include -I../../osi -I../../stack/include -I../../service/common -I../../third_party/modp_b64/modp64 -I../../third_party/libhardware/include -I../../third_party/libhardware/include/hardware -I../../third_party/core/include -I../../audio_hearing_aid_hw/include -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/service
+target_output_name = service
+
+build obj/service/service.a2dp_sink.o: cxx ../../service/a2dp_sink.cc
+build obj/service/service.a2dp_source.o: cxx ../../service/a2dp_source.cc
+build obj/service/service.adapter.o: cxx ../../service/adapter.cc
+build obj/service/service.avrcp_control.o: cxx ../../service/avrcp_control.cc
+build obj/service/service.avrcp_target.o: cxx ../../service/avrcp_target.cc
+build obj/service/common/bluetooth/service.a2dp_codec_config.o: cxx ../../service/common/bluetooth/a2dp_codec_config.cc
+build obj/service/common/bluetooth/service.adapter_state.o: cxx ../../service/common/bluetooth/adapter_state.cc
+build obj/service/common/bluetooth/service.advertise_data.o: cxx ../../service/common/bluetooth/advertise_data.cc
+build obj/service/common/bluetooth/service.advertise_settings.o: cxx ../../service/common/bluetooth/advertise_settings.cc
+build obj/service/common/bluetooth/service.avrcp_int_value.o: cxx ../../service/common/bluetooth/avrcp_int_value.cc
+build obj/service/common/bluetooth/service.avrcp_media_attr.o: cxx ../../service/common/bluetooth/avrcp_media_attr.cc
+build obj/service/common/bluetooth/service.avrcp_register_notification_response.o: cxx ../../service/common/bluetooth/avrcp_register_notification_response.cc
+build obj/service/common/bluetooth/service.characteristic.o: cxx ../../service/common/bluetooth/characteristic.cc
+build obj/service/common/bluetooth/service.descriptor.o: cxx ../../service/common/bluetooth/descriptor.cc
+build obj/service/common/bluetooth/service.remote_device_props.o: cxx ../../service/common/bluetooth/remote_device_props.cc
+build obj/service/common/bluetooth/service.scan_filter.o: cxx ../../service/common/bluetooth/scan_filter.cc
+build obj/service/common/bluetooth/service.scan_result.o: cxx ../../service/common/bluetooth/scan_result.cc
+build obj/service/common/bluetooth/service.scan_settings.o: cxx ../../service/common/bluetooth/scan_settings.cc
+build obj/service/common/bluetooth/service.service.o: cxx ../../service/common/bluetooth/service.cc
+build obj/service/common/bluetooth/util/service.atomic_string.o: cxx ../../service/common/bluetooth/util/atomic_string.cc
+build obj/audio_hearing_aid_hw/src/service.audio_hearing_aid_hw.o: cxx ../../audio_hearing_aid_hw/src/audio_hearing_aid_hw.cc
+build obj/audio_hearing_aid_hw/src/service.audio_hearing_aid_hw_utils.o: cxx ../../audio_hearing_aid_hw/src/audio_hearing_aid_hw_utils.cc
+build obj/service/service.daemon.o: cxx ../../service/daemon.cc
+build obj/service/service.gatt_client.o: cxx ../../service/gatt_client.cc
+build obj/service/service.gatt_server.o: cxx ../../service/gatt_server.cc
+build obj/service/service.gatt_server_old.o: cxx ../../service/gatt_server_old.cc
+build obj/service/hal/service.bluetooth_gatt_interface.o: cxx ../../service/hal/bluetooth_gatt_interface.cc
+build obj/service/hal/service.bluetooth_interface.o: cxx ../../service/hal/bluetooth_interface.cc
+build obj/service/ipc/dbus/service.bluetooth_adapter.o: cxx ../../service/ipc/dbus/bluetooth_adapter.cc
+build obj/service/ipc/dbus/service.ipc_handler_dbus.o: cxx ../../service/ipc/dbus/ipc_handler_dbus.cc
+build obj/service/hal/service.bluetooth_av_interface.o: cxx ../../service/hal/bluetooth_av_interface.cc
+build obj/service/hal/service.bluetooth_avrcp_interface.o: cxx ../../service/hal/bluetooth_avrcp_interface.cc
+build obj/service/hal/service.fake_bluetooth_gatt_interface.o: cxx ../../service/hal/fake_bluetooth_gatt_interface.cc
+build obj/service/hal/service.fake_bluetooth_interface.o: cxx ../../service/hal/fake_bluetooth_interface.cc
+build obj/service/ipc/service.ipc_handler.o: cxx ../../service/ipc/ipc_handler.cc
+build obj/service/ipc/service.ipc_handler_linux.o: cxx ../../service/ipc/ipc_handler_linux.cc
+build obj/service/ipc/service.ipc_manager.o: cxx ../../service/ipc/ipc_manager.cc
+build obj/service/ipc/service.linux_ipc_host.o: cxx ../../service/ipc/linux_ipc_host.cc
+build obj/service/service.logging_helpers.o: cxx ../../service/logging_helpers.cc
+build obj/service/service.low_energy_advertiser.o: cxx ../../service/low_energy_advertiser.cc
+build obj/service/service.low_energy_scanner.o: cxx ../../service/low_energy_scanner.cc
+build obj/service/service.low_energy_client.o: cxx ../../service/low_energy_client.cc
+build obj/service/service.settings.o: cxx ../../service/settings.cc
+
+build obj/service/service.stamp: stamp obj/service/service.a2dp_sink.o obj/service/service.a2dp_source.o obj/service/service.adapter.o obj/service/service.avrcp_control.o obj/service/service.avrcp_target.o obj/service/common/bluetooth/service.a2dp_codec_config.o obj/service/common/bluetooth/service.adapter_state.o obj/service/common/bluetooth/service.advertise_data.o obj/service/common/bluetooth/service.advertise_settings.o obj/service/common/bluetooth/service.avrcp_int_value.o obj/service/common/bluetooth/service.avrcp_media_attr.o obj/service/common/bluetooth/service.avrcp_register_notification_response.o obj/service/common/bluetooth/service.characteristic.o obj/service/common/bluetooth/service.descriptor.o obj/service/common/bluetooth/service.remote_device_props.o obj/service/common/bluetooth/service.scan_filter.o obj/service/common/bluetooth/service.scan_result.o obj/service/common/bluetooth/service.scan_settings.o obj/service/common/bluetooth/service.service.o obj/service/common/bluetooth/util/service.atomic_string.o obj/audio_hearing_aid_hw/src/service.audio_hearing_aid_hw.o obj/audio_hearing_aid_hw/src/service.audio_hearing_aid_hw_utils.o obj/service/service.daemon.o obj/service/service.gatt_client.o obj/service/service.gatt_server.o obj/service/service.gatt_server_old.o obj/service/hal/service.bluetooth_gatt_interface.o obj/service/hal/service.bluetooth_interface.o obj/service/ipc/dbus/service.bluetooth_adapter.o obj/service/ipc/dbus/service.ipc_handler_dbus.o obj/service/hal/service.bluetooth_av_interface.o obj/service/hal/service.bluetooth_avrcp_interface.o obj/service/hal/service.fake_bluetooth_gatt_interface.o obj/service/hal/service.fake_bluetooth_interface.o obj/service/ipc/service.ipc_handler.o obj/service/ipc/service.ipc_handler_linux.o obj/service/ipc/service.ipc_manager.o obj/service/ipc/service.linux_ipc_host.o obj/service/service.logging_helpers.o obj/service/service.low_energy_advertiser.o obj/service/service.low_energy_scanner.o obj/service/service.low_energy_client.o obj/service/service.settings.o || obj/types/libtypes.a obj/osi/libosi.a obj/common/libcommon.a obj/stack/libstack.a obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp obj/stack/libcrypto_toolbox.a libldacBT_enc.so libldacBT_abr.so obj/third_party/aac/libFraunhoferAAC.a

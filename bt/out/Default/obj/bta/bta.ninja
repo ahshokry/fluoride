@@ -1,0 +1,89 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../../bta/closure -I../../bta/dm -I../../bta/hh -I../../bta/hd -I../../bta/include -I../../bta/sys -I../.. -I../../linux_include -I../../bta -I../../internal_include -I../../btcore/include -I../../hci/include -I../../internal_include -I../../stack/include -I../../stack/btm -I../../udrv/include -I../../utils/include -I../../vnd/include -I../../btif/include -I../../btif/avrcp -I../../include/hardware/avrcp -I../../profile/avrcp -I../../packet/avrcp -I../../packet/base -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/bta
+target_output_name = libbta
+
+build obj/bta/ag/libbta.bta_ag_act.o: cxx ../../bta/ag/bta_ag_act.cc
+build obj/bta/ag/libbta.bta_ag_api.o: cxx ../../bta/ag/bta_ag_api.cc
+build obj/bta/ag/libbta.bta_ag_at.o: cxx ../../bta/ag/bta_ag_at.cc
+build obj/bta/ag/libbta.bta_ag_cfg.o: cxx ../../bta/ag/bta_ag_cfg.cc
+build obj/bta/ag/libbta.bta_ag_cmd.o: cxx ../../bta/ag/bta_ag_cmd.cc
+build obj/bta/ag/libbta.bta_ag_main.o: cxx ../../bta/ag/bta_ag_main.cc
+build obj/bta/ag/libbta.bta_ag_rfc.o: cxx ../../bta/ag/bta_ag_rfc.cc
+build obj/bta/ag/libbta.bta_ag_sco.o: cxx ../../bta/ag/bta_ag_sco.cc
+build obj/bta/ag/libbta.bta_ag_sdp.o: cxx ../../bta/ag/bta_ag_sdp.cc
+build obj/bta/ar/libbta.bta_ar.o: cxx ../../bta/ar/bta_ar.cc
+build obj/bta/av/libbta.bta_av_aact.o: cxx ../../bta/av/bta_av_aact.cc
+build obj/bta/av/libbta.bta_av_act.o: cxx ../../bta/av/bta_av_act.cc
+build obj/bta/av/libbta.bta_av_api.o: cxx ../../bta/av/bta_av_api.cc
+build obj/bta/av/libbta.bta_av_cfg.o: cxx ../../bta/av/bta_av_cfg.cc
+build obj/bta/av/libbta.bta_av_ci.o: cxx ../../bta/av/bta_av_ci.cc
+build obj/bta/av/libbta.bta_av_main.o: cxx ../../bta/av/bta_av_main.cc
+build obj/bta/av/libbta.bta_av_ssm.o: cxx ../../bta/av/bta_av_ssm.cc
+build obj/bta/dm/libbta.bta_dm_act.o: cxx ../../bta/dm/bta_dm_act.cc
+build obj/bta/dm/libbta.bta_dm_api.o: cxx ../../bta/dm/bta_dm_api.cc
+build obj/bta/dm/libbta.bta_dm_cfg.o: cxx ../../bta/dm/bta_dm_cfg.cc
+build obj/bta/dm/libbta.bta_dm_ci.o: cxx ../../bta/dm/bta_dm_ci.cc
+build obj/bta/dm/libbta.bta_dm_main.o: cxx ../../bta/dm/bta_dm_main.cc
+build obj/bta/dm/libbta.bta_dm_pm.o: cxx ../../bta/dm/bta_dm_pm.cc
+build obj/bta/gatt/libbta.bta_gattc_act.o: cxx ../../bta/gatt/bta_gattc_act.cc
+build obj/bta/gatt/libbta.bta_gattc_api.o: cxx ../../bta/gatt/bta_gattc_api.cc
+build obj/bta/gatt/libbta.bta_gattc_cache.o: cxx ../../bta/gatt/bta_gattc_cache.cc
+build obj/bta/gatt/libbta.bta_gattc_main.o: cxx ../../bta/gatt/bta_gattc_main.cc
+build obj/bta/gatt/libbta.bta_gattc_utils.o: cxx ../../bta/gatt/bta_gattc_utils.cc
+build obj/bta/gatt/libbta.bta_gattc_queue.o: cxx ../../bta/gatt/bta_gattc_queue.cc
+build obj/bta/gatt/libbta.bta_gatts_act.o: cxx ../../bta/gatt/bta_gatts_act.cc
+build obj/bta/gatt/libbta.bta_gatts_api.o: cxx ../../bta/gatt/bta_gatts_api.cc
+build obj/bta/gatt/libbta.bta_gatts_main.o: cxx ../../bta/gatt/bta_gatts_main.cc
+build obj/bta/gatt/libbta.bta_gatts_utils.o: cxx ../../bta/gatt/bta_gatts_utils.cc
+build obj/bta/gatt/libbta.database.o: cxx ../../bta/gatt/database.cc
+build obj/bta/gatt/libbta.database_builder.o: cxx ../../bta/gatt/database_builder.cc
+build obj/bta/hearing_aid/libbta.hearing_aid.o: cxx ../../bta/hearing_aid/hearing_aid.cc
+build obj/bta/hearing_aid/libbta.hearing_aid_audio_source.o: cxx ../../bta/hearing_aid/hearing_aid_audio_source.cc
+build obj/bta/hf_client/libbta.bta_hf_client_act.o: cxx ../../bta/hf_client/bta_hf_client_act.cc
+build obj/bta/hf_client/libbta.bta_hf_client_api.o: cxx ../../bta/hf_client/bta_hf_client_api.cc
+build obj/bta/hf_client/libbta.bta_hf_client_at.o: cxx ../../bta/hf_client/bta_hf_client_at.cc
+build obj/bta/hf_client/libbta.bta_hf_client_main.o: cxx ../../bta/hf_client/bta_hf_client_main.cc
+build obj/bta/hf_client/libbta.bta_hf_client_rfc.o: cxx ../../bta/hf_client/bta_hf_client_rfc.cc
+build obj/bta/hf_client/libbta.bta_hf_client_sdp.o: cxx ../../bta/hf_client/bta_hf_client_sdp.cc
+build obj/bta/hf_client/libbta.bta_hf_client_sco.o: cxx ../../bta/hf_client/bta_hf_client_sco.cc
+build obj/bta/hh/libbta.bta_hh_act.o: cxx ../../bta/hh/bta_hh_act.cc
+build obj/bta/hh/libbta.bta_hh_api.o: cxx ../../bta/hh/bta_hh_api.cc
+build obj/bta/hh/libbta.bta_hh_cfg.o: cxx ../../bta/hh/bta_hh_cfg.cc
+build obj/bta/hh/libbta.bta_hh_le.o: cxx ../../bta/hh/bta_hh_le.cc
+build obj/bta/hh/libbta.bta_hh_main.o: cxx ../../bta/hh/bta_hh_main.cc
+build obj/bta/hh/libbta.bta_hh_utils.o: cxx ../../bta/hh/bta_hh_utils.cc
+build obj/bta/hd/libbta.bta_hd_act.o: cxx ../../bta/hd/bta_hd_act.cc
+build obj/bta/hd/libbta.bta_hd_api.o: cxx ../../bta/hd/bta_hd_api.cc
+build obj/bta/hd/libbta.bta_hd_main.o: cxx ../../bta/hd/bta_hd_main.cc
+build obj/bta/hl/libbta.bta_hl_act.o: cxx ../../bta/hl/bta_hl_act.cc
+build obj/bta/hl/libbta.bta_hl_api.o: cxx ../../bta/hl/bta_hl_api.cc
+build obj/bta/hl/libbta.bta_hl_ci.o: cxx ../../bta/hl/bta_hl_ci.cc
+build obj/bta/hl/libbta.bta_hl_main.o: cxx ../../bta/hl/bta_hl_main.cc
+build obj/bta/hl/libbta.bta_hl_sdp.o: cxx ../../bta/hl/bta_hl_sdp.cc
+build obj/bta/hl/libbta.bta_hl_utils.o: cxx ../../bta/hl/bta_hl_utils.cc
+build obj/bta/jv/libbta.bta_jv_act.o: cxx ../../bta/jv/bta_jv_act.cc
+build obj/bta/jv/libbta.bta_jv_api.o: cxx ../../bta/jv/bta_jv_api.cc
+build obj/bta/jv/libbta.bta_jv_cfg.o: cxx ../../bta/jv/bta_jv_cfg.cc
+build obj/bta/mce/libbta.bta_mce_act.o: cxx ../../bta/mce/bta_mce_act.cc
+build obj/bta/mce/libbta.bta_mce_api.o: cxx ../../bta/mce/bta_mce_api.cc
+build obj/bta/mce/libbta.bta_mce_cfg.o: cxx ../../bta/mce/bta_mce_cfg.cc
+build obj/bta/mce/libbta.bta_mce_main.o: cxx ../../bta/mce/bta_mce_main.cc
+build obj/bta/pan/libbta.bta_pan_act.o: cxx ../../bta/pan/bta_pan_act.cc
+build obj/bta/pan/libbta.bta_pan_api.o: cxx ../../bta/pan/bta_pan_api.cc
+build obj/bta/pan/libbta.bta_pan_ci.o: cxx ../../bta/pan/bta_pan_ci.cc
+build obj/bta/pan/libbta.bta_pan_main.o: cxx ../../bta/pan/bta_pan_main.cc
+build obj/bta/sdp/libbta.bta_sdp.o: cxx ../../bta/sdp/bta_sdp.cc
+build obj/bta/sdp/libbta.bta_sdp_act.o: cxx ../../bta/sdp/bta_sdp_act.cc
+build obj/bta/sdp/libbta.bta_sdp_api.o: cxx ../../bta/sdp/bta_sdp_api.cc
+build obj/bta/sdp/libbta.bta_sdp_cfg.o: cxx ../../bta/sdp/bta_sdp_cfg.cc
+build obj/bta/sys/libbta.bta_sys_conn.o: cxx ../../bta/sys/bta_sys_conn.cc
+build obj/bta/sys/libbta.bta_sys_main.o: cxx ../../bta/sys/bta_sys_main.cc
+build obj/bta/sys/libbta.utl.o: cxx ../../bta/sys/utl.cc
+
+build obj/bta/libbta.a: alink obj/bta/ag/libbta.bta_ag_act.o obj/bta/ag/libbta.bta_ag_api.o obj/bta/ag/libbta.bta_ag_at.o obj/bta/ag/libbta.bta_ag_cfg.o obj/bta/ag/libbta.bta_ag_cmd.o obj/bta/ag/libbta.bta_ag_main.o obj/bta/ag/libbta.bta_ag_rfc.o obj/bta/ag/libbta.bta_ag_sco.o obj/bta/ag/libbta.bta_ag_sdp.o obj/bta/ar/libbta.bta_ar.o obj/bta/av/libbta.bta_av_aact.o obj/bta/av/libbta.bta_av_act.o obj/bta/av/libbta.bta_av_api.o obj/bta/av/libbta.bta_av_cfg.o obj/bta/av/libbta.bta_av_ci.o obj/bta/av/libbta.bta_av_main.o obj/bta/av/libbta.bta_av_ssm.o obj/bta/dm/libbta.bta_dm_act.o obj/bta/dm/libbta.bta_dm_api.o obj/bta/dm/libbta.bta_dm_cfg.o obj/bta/dm/libbta.bta_dm_ci.o obj/bta/dm/libbta.bta_dm_main.o obj/bta/dm/libbta.bta_dm_pm.o obj/bta/gatt/libbta.bta_gattc_act.o obj/bta/gatt/libbta.bta_gattc_api.o obj/bta/gatt/libbta.bta_gattc_cache.o obj/bta/gatt/libbta.bta_gattc_main.o obj/bta/gatt/libbta.bta_gattc_utils.o obj/bta/gatt/libbta.bta_gattc_queue.o obj/bta/gatt/libbta.bta_gatts_act.o obj/bta/gatt/libbta.bta_gatts_api.o obj/bta/gatt/libbta.bta_gatts_main.o obj/bta/gatt/libbta.bta_gatts_utils.o obj/bta/gatt/libbta.database.o obj/bta/gatt/libbta.database_builder.o obj/bta/hearing_aid/libbta.hearing_aid.o obj/bta/hearing_aid/libbta.hearing_aid_audio_source.o obj/bta/hf_client/libbta.bta_hf_client_act.o obj/bta/hf_client/libbta.bta_hf_client_api.o obj/bta/hf_client/libbta.bta_hf_client_at.o obj/bta/hf_client/libbta.bta_hf_client_main.o obj/bta/hf_client/libbta.bta_hf_client_rfc.o obj/bta/hf_client/libbta.bta_hf_client_sdp.o obj/bta/hf_client/libbta.bta_hf_client_sco.o obj/bta/hh/libbta.bta_hh_act.o obj/bta/hh/libbta.bta_hh_api.o obj/bta/hh/libbta.bta_hh_cfg.o obj/bta/hh/libbta.bta_hh_le.o obj/bta/hh/libbta.bta_hh_main.o obj/bta/hh/libbta.bta_hh_utils.o obj/bta/hd/libbta.bta_hd_act.o obj/bta/hd/libbta.bta_hd_api.o obj/bta/hd/libbta.bta_hd_main.o obj/bta/hl/libbta.bta_hl_act.o obj/bta/hl/libbta.bta_hl_api.o obj/bta/hl/libbta.bta_hl_ci.o obj/bta/hl/libbta.bta_hl_main.o obj/bta/hl/libbta.bta_hl_sdp.o obj/bta/hl/libbta.bta_hl_utils.o obj/bta/jv/libbta.bta_jv_act.o obj/bta/jv/libbta.bta_jv_api.o obj/bta/jv/libbta.bta_jv_cfg.o obj/bta/mce/libbta.bta_mce_act.o obj/bta/mce/libbta.bta_mce_api.o obj/bta/mce/libbta.bta_mce_cfg.o obj/bta/mce/libbta.bta_mce_main.o obj/bta/pan/libbta.bta_pan_act.o obj/bta/pan/libbta.bta_pan_api.o obj/bta/pan/libbta.bta_pan_ci.o obj/bta/pan/libbta.bta_pan_main.o obj/bta/sdp/libbta.bta_sdp.o obj/bta/sdp/libbta.bta_sdp_act.o obj/bta/sdp/libbta.bta_sdp_api.o obj/bta/sdp/libbta.bta_sdp_cfg.o obj/bta/sys/libbta.bta_sys_conn.o obj/bta/sys/libbta.bta_sys_main.o obj/bta/sys/libbta.utl.o || obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

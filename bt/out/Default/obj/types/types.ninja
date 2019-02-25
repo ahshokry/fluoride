@@ -1,0 +1,14 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../.. -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -fvisibility=default -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/types
+target_output_name = libtypes
+
+build obj/types/bluetooth/libtypes.uuid.o: cxx ../../types/bluetooth/uuid.cc
+build obj/types/libtypes.raw_address.o: cxx ../../types/raw_address.cc
+
+build obj/types/libtypes.a: alink obj/types/bluetooth/libtypes.uuid.o obj/types/libtypes.raw_address.o || obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

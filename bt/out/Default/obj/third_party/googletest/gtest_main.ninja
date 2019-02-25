@@ -1,0 +1,10 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED -DGTEST_HAS_RTTI=0 -DUNIT_TEST
+include_dirs = -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/third_party/googletest
+target_output_name = gtest_main
+
+build obj/third_party/googletest/googletest/src/gtest_main.gtest_main.o: cxx ../../third_party/googletest/googletest/src/gtest_main.cc
+
+build obj/third_party/googletest/gtest_main.stamp: stamp obj/third_party/googletest/googletest/src/gtest_main.gtest_main.o || obj/third_party/googletest/libgtest.a

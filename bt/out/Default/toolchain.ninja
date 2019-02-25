@@ -1,0 +1,77 @@
+rule cc
+  command = clang-3.9 -MMD -MF ${out}.d ${defines} ${include_dirs} ${cflags} ${cflags_c} -c ${in} -o ${out}
+  description = CC ${out}
+  depfile = ${out}.d
+  deps = gcc
+rule cxx
+  command = clang++-3.9 -MMD -MF ${out}.d ${defines} ${include_dirs} ${cflags} ${cflags_cc} -c ${in} -o ${out}
+  description = CXX ${out}
+  depfile = ${out}.d
+  deps = gcc
+rule alink
+  command = rm -f ${out} && ar rcs ${out} @${out}.rsp
+  description = AR ${target_output_name}${output_extension}
+  rspfile = ${out}.rsp
+  rspfile_content = ${in}
+rule solink
+  command = clang++-3.9 -shared ${ldflags} -o ${target_output_name}${output_extension} -Wl,-soname=${target_output_name}${output_extension} @${target_output_name}${output_extension}.rsp
+  description = SOLINK ${target_output_name}${output_extension}
+  rspfile = ${target_output_name}${output_extension}.rsp
+  rspfile_content = -Wl,--whole-archive ${in} ${solibs} -Wl,--no-whole-archive ${libs}
+rule link
+  command = clang++-3.9 ${ldflags} -o ${target_output_name}${output_extension} -Wl,--start-group @${target_output_name}${output_extension}.rsp ${solibs} -Wl,--end-group ${libs}
+  description = LINK ${target_output_name}${output_extension}
+  rspfile = ${target_output_name}${output_extension}.rsp
+  rspfile_content = ${in}
+rule stamp
+  command = touch ${out}
+  description = STAMP ${out}
+rule copy
+  command = cp -af ${in} ${out}
+  description = COPY ${in} ${out}
+
+build obj/bluetooth.stamp: stamp libbluetooth.so bluetoothtbd
+build obj/test_tools.stamp: stamp mcap_tool
+subninja obj/bta/bta.ninja
+subninja obj/btcore/btcore.ninja
+subninja obj/btcore/net_test_btcore.ninja
+subninja obj/btif/btif.ninja
+subninja obj/common/bt_test_common.ninja
+subninja obj/common/common.ninja
+subninja obj/device/device.ninja
+subninja obj/device/net_test_device.ninja
+subninja obj/embdrv/g722/g722.ninja
+subninja obj/embdrv/sbc/sbc.ninja
+subninja obj/embdrv/sbc/sbc_decoder.ninja
+subninja obj/embdrv/sbc/sbc_encoder.ninja
+subninja obj/hci/hci.ninja
+subninja obj/hci/net_test_hci.ninja
+subninja obj/main/bluetooth.ninja
+subninja obj/osi/net_test_osi.ninja
+subninja obj/osi/osi.ninja
+subninja obj/packet/packet.ninja
+subninja obj/profile/avrcp/profile_avrcp.ninja
+subninja obj/service/bluetoothtbd.ninja
+subninja obj/service/service.ninja
+subninja obj/service/service_unittests.ninja
+subninja obj/stack/crypto_toolbox.ninja
+subninja obj/stack/net_test_stack_crypto_toolbox.ninja
+subninja obj/stack/net_test_stack_multi_adv.ninja
+subninja obj/stack/net_test_stack_smp.ninja
+subninja obj/stack/stack.ninja
+subninja obj/third_party/aac/libFraunhoferAAC.ninja
+subninja obj/third_party/googletest/gmock.ninja
+subninja obj/third_party/googletest/gmock_main.ninja
+subninja obj/third_party/googletest/gtest.ninja
+subninja obj/third_party/googletest/gtest_main.ninja
+subninja obj/third_party/libchrome/base.ninja
+subninja obj/third_party/libchrome/base_sources.ninja
+subninja obj/third_party/libldac/libldacBT_abr.ninja
+subninja obj/third_party/libldac/libldacBT_enc.ninja
+subninja obj/third_party/modp_b64/modp_b64.ninja
+subninja obj/third_party/tinyxml2/tinyxml2.ninja
+subninja obj/tools/mcap_tool/mcap_tool.ninja
+subninja obj/types/types.ninja
+subninja obj/types/types_unittests.ninja
+subninja obj/udrv/udrv.ninja
+subninja obj/utils/utils.ninja

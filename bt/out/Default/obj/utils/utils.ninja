@@ -1,0 +1,13 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../../utils/include -I../.. -I../../stack/include -I../../third_party/libchrome -I../../third_party/googletest/googletest/include -I../../include -I../../types -I/usr/include/libcxxabi
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/utils
+target_output_name = libutils
+
+build obj/utils/src/libutils.bt_utils.o: cxx ../../utils/src/bt_utils.cc
+
+build obj/utils/libutils.a: alink obj/utils/src/libutils.bt_utils.o
+  arflags =
+  output_extension = .a
+  output_dir = 

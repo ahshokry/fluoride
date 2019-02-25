@@ -1,0 +1,14 @@
+defines = -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../.. -I../../btcore/include -I../../internal_include -I../../stack/include -I../../profile/avrcp -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/googletest/googletest/include -I../../third_party/libchrome -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include
+cflags = -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_cc = -std=c++14 -fno-exceptions -fpermissive -stdlib=libc++
+target_out_dir = obj/profile/avrcp
+target_output_name = libprofile_avrcp
+
+build obj/profile/avrcp/libprofile_avrcp.connection_handler.o: cxx ../../profile/avrcp/connection_handler.cc
+build obj/profile/avrcp/libprofile_avrcp.device.o: cxx ../../profile/avrcp/device.cc
+
+build obj/profile/avrcp/libprofile_avrcp.a: alink obj/profile/avrcp/libprofile_avrcp.connection_handler.o obj/profile/avrcp/libprofile_avrcp.device.o || obj/third_party/libchrome/libbase.a obj/third_party/libchrome/base_sources.stamp
+  arflags =
+  output_extension = .a
+  output_dir = 

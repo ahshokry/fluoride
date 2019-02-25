@@ -1,0 +1,14 @@
+defines = -DEXPORT_SYMBOL= -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -DHAS_NO_BDROID_BUILDCFG -DLOG_NDEBUG=1 -DEXPORT_SYMBOL=__attribute__\(\(visibility\(\"default\"\)\)\) -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM=TRUE -DOS_GENERIC -DFALLTHROUGH_INTENDED
+include_dirs = -I../../include -I../../types -I/usr/include/libcxxabi -I../../third_party/libldac/abr/inc -I../../third_party/libldac/inc
+cflags = -O2 -Wno-gnu-variable-sized-type-not-at-end -g -O0 -fpic -fdata-sections -ffunction-sections -fvisibility=hidden
+cflags_c = -std=c99
+target_out_dir = obj/third_party/libldac
+target_output_name = libldacBT_abr
+
+build obj/third_party/libldac/abr/src/libldacBT_abr.ldacBT_abr.o: cc ../../third_party/libldac/abr/src/ldacBT_abr.c
+
+build libldacBT_abr.so: solink obj/third_party/libldac/abr/src/libldacBT_abr.ldacBT_abr.o
+  ldflags = -Wl,--gc-sections -stdlib=libc++
+  libs =
+  output_extension = .so
+  output_dir = 
