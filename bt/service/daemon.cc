@@ -55,8 +55,8 @@ audio_stream_out_t* streamOut;
 namespace bluetooth {
 
 namespace {
-const std::string DesiredDeviceName = "nimble_server"; //Synopsys_BLE_Dev  OPPO A57 nimble-bleprph nimble_server
-const std::string DesiredDeviceAddress = "00:00:29:29:11:00";
+const std::string DesiredDeviceName = "nimble_srv_asha"; //Synopsys_BLE_Dev  OPPO A57 nimble-bleprph nimble_server
+const std::string DesiredDeviceAddress = "00:00:99:99:00:00";
 
 // The global Daemon instance.
 Daemon* g_daemon = nullptr;
